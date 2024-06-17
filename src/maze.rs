@@ -25,9 +25,10 @@ pub struct Maze {
 
 impl Maze {
     pub fn new(width: usize, height: usize) -> Self {
-        Self {
-            grid: vec![vec![CellStatus::Start; height]; width],
-        }
+        let mut pre_grid = vec![vec![CellStatus::Free; height]; width];
+        pre_grid[50] = pre_grid[50].iter().map(|_v| CellStatus::Block).collect();
+
+        Self { grid: pre_grid }
     }
 
     pub fn get_pixel_buffer(&self) -> Vec<u32> {
