@@ -1,3 +1,4 @@
+mod bfs;
 mod maze;
 
 use maze::Maze;
